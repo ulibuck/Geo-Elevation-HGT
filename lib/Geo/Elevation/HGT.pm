@@ -36,12 +36,12 @@ sub new {
   while ( my($key,$value) = each %params ) {
     $self->{$key} = $value;
   }
-  for (keys(%defaults)) {
-    if (exists($self->{$_})) {
-      ${$defaults{$_}} = $self->{$_};
+  for my $default (keys(%defaults)) {
+    if (exists($self->{$default})) {
+      ${$defaults{$default}} = $self->{$default};
     }
     else {
-      $self->{$_} = ${$defaults{$_}};
+      $self->{$default} = ${$defaults{$default}};
     }
   }
   bless $self, $class;
@@ -49,10 +49,10 @@ sub new {
 }
 
 sub get_elevation_batch_hgt {
-  my ($self, $latlon) = @_;
+  my ($self, $batch_latlon) = @_;
   my @elegeh;
-  for ( @$latlon ) {
-    my ($lat, $lon) = @$_;
+  for my $latlon ( @$batch_latlon ) {
+    my ($lat, $lon) = @$latlon;
     push (@elegeh, $self->get_elevation_hgt ($lat, $lon));
   }
   return \@elegeh;
@@ -287,9 +287,9 @@ Pass latitude and longitude in decimal notation, i.e. 45.8325, 6.86444444444444 
 
   # Get elevations of these famous mountains
   my $geh = Geo::Elevation::HGT->new();
-  for ( @mountains ) {
-    my ($name) = %$_;
-    my ($lat, $lon, $ele_wiki) = ($_->{$name}{'lat'}, $_->{$name}{'lon'}, $_->{$name}{'ele_wiki'});
+  for my $mountain ( @mountains ) {
+    my ($name) = %$mountain;
+    my ($lat, $lon, $ele_wiki) = ($mountain->{$name}{'lat'}, $mountain->{$name}{'lon'}, $mountain->{$name}{'ele_wiki'});
     my $ele_geh = $geh->get_elevation_hgt ($lat, $lon);
     print join( ' ', $name, $lat, $lon, $ele_wiki, $ele_geh, $ele_geh-$ele_wiki, "\n");
   }
