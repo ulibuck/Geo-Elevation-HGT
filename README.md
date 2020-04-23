@@ -65,9 +65,9 @@ Pass latitude and longitude in decimal notation, i.e. 45.8325, 6.86444444444444 
 
     # Get elevations of these famous mountains
     my $geh = Geo::Elevation::HGT->new();
-    for ( @mountains ) {
-      my ($name) = %$_;
-      my ($lat, $lon, $ele_wiki) = ($_->{$name}{'lat'}, $_->{$name}{'lon'}, $_->{$name}{'ele_wiki'});
+    for my $mountain ( @mountains ) {
+      my ($name) = %$mountain;
+      my ($lat, $lon, $ele_wiki) = ($mountain->{$name}{'lat'}, $mountain->{$name}{'lon'}, $mountain->{$name}{'ele_wiki'});
       my $ele_geh = $geh->get_elevation_hgt ($lat, $lon);
       print join( ' ', $name, $lat, $lon, $ele_wiki, $ele_geh, $ele_geh-$ele_wiki, "\n");
     }
