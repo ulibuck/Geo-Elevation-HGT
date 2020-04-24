@@ -36,12 +36,12 @@ sub new {
   while ( my($key,$value) = each %params ) {
     $self->{$key} = $value;
   }
-  for my $default (keys(%defaults)) {
-    if (exists($self->{$default})) {
-      ${$defaults{$default}} = $self->{$default};
+  for my $item (keys(%defaults)) {
+    if (exists($self->{$item})) {
+      ${$defaults{$item}} = $self->{$item};
     }
     else {
-      $self->{$default} = ${$defaults{$default}};
+      $self->{$item} = ${$defaults{$item}};
     }
   }
   bless $self, $class;
