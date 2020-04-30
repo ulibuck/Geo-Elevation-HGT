@@ -22,27 +22,16 @@ my $fail;
 
 sub new {
   my ($class, %params) = @_;
-  $url =  "https://elevation-tiles-prod.s3.amazonaws.com/skadi";    # info at https://registry.opendata.aws/terrain-tiles/
-  $folder = "$url";
-  $cache_folder = "";
-  $debug = 0;
-  my %defaults = (
-    folder => \$folder,
-    url => \$url,
-    cache_folder => \$cache_folder,
-    debug => \$debug,
+  %params = (
+    url => "https://elevation-tiles-prod.s3.amazonaws.com/skadi",    # info at https://registry.opendata.aws/terrain-tiles/
+    folder => "https://elevation-tiles-prod.s3.amazonaws.com/skadi",
+    cache_folder => "",
+    debug => 0,
+    %params
   );
   my $self = {};
   while ( my($key,$value) = each %params ) {
     $self->{$key} = $value;
-  }
-  for my $item (keys(%defaults)) {
-    if (exists($self->{$item})) {
-      ${$defaults{$item}} = $self->{$item};
-    }
-    else {
-      $self->{$item} = ${$defaults{$item}};
-    }
   }
   bless $self, $class;
   return $self;
