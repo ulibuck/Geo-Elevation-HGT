@@ -47,6 +47,14 @@ In a typical application of getting elevations for a gpx track of an outdoor act
 
 To get the elevations of a few thousand gpx track points is therefore normally quite fast.
 
+Here is a benchmark I did on my 2015 NUC5i3RYK with Intel 5010U dual-core processor
+
+\- 4.5 s for the first elevation with download of the terrain tile from Amazon AWS S3
+
+\- 0.5 s for the first elevation with the terrain tile stored on my NAS
+
+\- 50,000 elevations per second with the terrain tile in memory
+
 It is the user's responsibility to respect the license and terms of use for the data provided by Mapzen and Amazon AWS S3.
 
 # Example
@@ -83,7 +91,7 @@ The elevations returned for these famous mountains are lower than their effectiv
 Nevertheless the elevations returned should be useful to obtain a good representation of the elevation profile of a gpx track.
 
 According to my experience these are much better than elevations recorded by a gps logger on a mobile phone.
-Such elevation data include a lot of noise and can be off by 100 m.
+Such elevation data include a lot of noise with erratic jumps by 100 m.
 
 # Methods
 
