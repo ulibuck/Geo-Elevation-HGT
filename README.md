@@ -155,7 +155,7 @@ Argument: an array reference with arrays of latitude-longitude pairs, i.e. `[[la
 
 Returns an array reference with the associated elevations `[ele1, ele2, ...]`
 
-Provided for user convienience. Calls method `get_elevation_hgt` in turn for every latitude-longitude pair.
+Provided for user convenience. Calls method `get_elevation_hgt` in turn for every latitude-longitude pair.
 
 Flags and Status Description reflect the state after the call with the last latitude-longitude pair.
 
@@ -208,7 +208,7 @@ HGT files need to be compressed to GNU zip (gzip) or ZIP (zip) compression forma
 
 # Author
 
-Ulrich Buck, `<ulibuck at web.de>`
+Ulrich Buck, `<ulibuck at cpan.org>`
 
 # Bugs
 
