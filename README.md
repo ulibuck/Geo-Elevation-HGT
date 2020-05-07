@@ -141,7 +141,7 @@ Returns the elevation for this latitude and longitude in meters
 
 \- `Cached` - the tile was found under the `$geh->{cache_folder}` path
 
-\- `Url`    - the tile was downloaded from the C$geh->{url}> path, unless subsequent `Failed` indicates failure
+\- `Url`    - the tile was downloaded from the `$geh->{url}` path, unless subsequent `Failed` indicates failure
 
 \- `Failed` - access to the tile under `$geh->{url}` failed
 
@@ -223,8 +223,6 @@ You can find documentation for this module with the perldoc command.
     perldoc Geo::Elevation::HGT
 
 You can also look for information at:
-
-    -- Note: not found on CPAN (yet) -- check again later --
 
 - RT: CPAN's request tracker (report bugs here)
 
