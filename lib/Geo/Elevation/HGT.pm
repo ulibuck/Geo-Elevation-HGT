@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Carp;
 # set the version for version checking
-our $VERSION     = '0.01';
+our $VERSION     = '0.02';
 # file-private lexicals
 my $grid_size; # .hgt grid size = 3601x3601 for 1-minute DEMs or 1201x1201 for 3-minute DEMs
 my @DEMnames;
@@ -360,7 +360,7 @@ Returns the elevation for this latitude and longitude in meters
 
 - C<Cached> - the tile was found under the C<$geh-E<gt>{cache_folder}> path
 
-- C<Url>    - the tile was downloaded from the C$geh-E<gt>{url}> path, unless subsequent C<Failed> indicates failure
+- C<Url>    - the tile was downloaded from the C<$geh-E<gt>{url}> path, unless subsequent C<Failed> indicates failure
 
 - C<Failed> - access to the tile under C<$geh-E<gt>{url}> failed
 
@@ -442,8 +442,6 @@ You can find documentation for this module with the perldoc command.
     perldoc Geo::Elevation::HGT
 
 You can also look for information at:
-
- -- Note: not found on CPAN (yet) -- check again later --
 
 =over 4
 
