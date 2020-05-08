@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Carp;
 # set the version for version checking
-our $VERSION     = '0.02';
+our $VERSION     = '0.03';
 # file-private lexicals
 my $grid_size; # .hgt grid size = 3601x3601 for 1-minute DEMs or 1201x1201 for 3-minute DEMs
 my @DEMnames;
@@ -215,7 +215,7 @@ Geo::Elevation::HGT - Elevation service with terrain data provided by L<Mapzen a
 
 =head1 Version
 
-Version 0.01
+Version 0.03
 
 =head1 Synopsis
 
@@ -320,7 +320,7 @@ Valid parameters, all optional:
 
 * C<folder> - the path to a folder where the terrain tiles to use are stored; no default
 
-* C<url> - the url of the terrain tiles to use; default L<https://elevation-tiles-prod.s3.amazonaws.com/skadi>
+* C<url> - the url of the terrain tiles to use; default C<https://elevation-tiles-prod.s3.amazonaws.com/skadi>
 
 * C<cache_folder> path to an existing folder where the terrain tiles downloaded from C<$geh-E<gt>{url}> will be stored for subsequent use; no default
 
@@ -400,7 +400,7 @@ The rows at the north and south edges as well as the columns at the east and wes
 
 =head1 HGT directory tree
 
-L<https://elevation-tiles-prod.s3.amazonaws.com/skadi> stores HGT files in subdirectories by their latitude
+C<https://elevation-tiles-prod.s3.amazonaws.com/skadi> stores HGT files in subdirectories by their latitude
 
  ...
  ├── N45
